@@ -1,7 +1,7 @@
 
 const express = require("express");
 const blogsController = require("../controllers/blogsController");
-const authenticateMiddleware = require("../middleware/authenticateToken")
+const authenticateMiddleware = require("../middleware/authethicateToken")
 const router = express.Router();
 
 router.post(

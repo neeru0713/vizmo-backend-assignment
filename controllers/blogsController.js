@@ -1,5 +1,5 @@
 const { Blog } = require("../models/Blog.js");
-const blogsService = require("../services/blogsService.js");
+const blogsService = require("../services/bolgsService.js");
 
 const createBlog = async (req, res) => {
   try {
@@ -54,7 +54,16 @@ const getBlog = async (req, res) => {
   };
 
  
-
+  const createComment = async (req, res) => {
+    try {
+      let newComment = await blogsService.createComment(req.params.id, req.body);
+      if (newComment) {
+        res.status(201).json({ comment: newComment });
+      }
+    } catch (error) {
+      res.status(500).json({ error: "Internal Server Error" });
+    }
+  };
 
 
 
@@ -64,5 +73,6 @@ module.exports = {
     createBlog,
     getBlog,
     deleteBlog,
-    updateBlog
+    updateBlog,
+    createComment
 };
