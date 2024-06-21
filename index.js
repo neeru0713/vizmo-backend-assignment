@@ -1,16 +1,16 @@
 const express = require("express");
 const mongoose = require("mongoose");
-// const authRoutes = require("./routes/authRoutes.js");
-// const blogRoutes = require("./routes/blogRoutes.js");
-
+const authRoutes = require("./routes/authRoutes.js");
+const blogsRoutes = require("./routes/blogsRoutes.js");
 const bodyParser = require("body-parser");
+
 const app = express();
 const cors = require("cors");
 app.use(cors());
 app.use(bodyParser.json());
 app.use(express.json());
-// app.use("/api/auth", authRoutes);
-// app.use("/api/blogs", blogRoutes);
+app.use("/api/auth", authRoutes);
+app.use("/api/blogs", blogsRoutes);
 
 
 
